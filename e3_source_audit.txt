@@ -1,0 +1,77 @@
+========== PYTHON SCRIPTS ==========
+audit_e2_quality.py
+clip-demo.py
+continue_e2_matched_text_image_v2.py
+debug_coco.py
+diagnose_e2_a.py
+download_coco_needed.py
+e2_reviewer.py
+e2_reviewer_zh.py
+e3_data_audit.py
+eval_adapter.py
+eval_clip.py
+eval_sugarcrepe.py
+extract_dev_features.py
+extract_train_features.py
+extract_trohn_full.py
+filter_e2_binding.py
+inspect_sugarcrepe.py
+inspect_train_captions.py
+inspect_trohn_full_manifest.py
+inspect_trohn.py
+make_hard_negatives.py
+mine_e2_full.py
+prepare_e2_b_trohn.py
+prepare_e2_b_trohn_v2.py
+prepare_e2_pilot.py
+prepare_e2_torhn.py
+resume_e2_b_trohn.py
+scan_strength.py
+score_e2_binding.py
+score_e2_candidates.py
+train_adapter.py
+train_e2_a.py
+train_e2_b_full.py
+train_e2_b.py
+train_e2_matched_clean.py
+train_e2_matched_full.py
+
+========== DATA DIRECTORIES ==========
+e2_data/continuation_full_text_image_v2
+e2_data/coco_full
+e2_data/coco_full/train2017
+
+========== TROHN EXTRACTION CODE ==========
+7:from datasets import load_dataset
+13:COCO_DIR = DATA / "coco_full" / "train2017"
+16:DATASET = "imirandam/TROHN-Img"
+45:        f"Cannot decode negative_image: {type(value)}"
+84:    ds = load_dataset(
+85:        DATASET,
+96:        "negative_image_features",
+117:            image_id = str(row["image_id"]).strip()
+119:            original_path = COCO_DIR / image_id
+130:                preprocess(neg_pil(row["negative_image"]))
+161:            "negative_image_features": image_f[n:],
+178:        obj["image_ids"] = ids_buf
+221:            str(r["image_id"]).strip()
+249:            str(r["image_id"]).strip()
+277:    if not COCO_DIR.exists():
+
+========== FLICKR EXTRACTION CODE ==========
+extract_train_features.py:4:from datasets import load_dataset, DownloadConfig
+extract_train_features.py:7:CAPTIONS_PER_IMAGE = 5
+extract_train_features.py:11:dataset = load_dataset(
+extract_train_features.py:21:model, _, preprocess = open_clip.create_model_and_transforms(
+extract_train_features.py:22:    "ViT-B-32",
+extract_train_features.py:26:tokenizer = open_clip.get_tokenizer("ViT-B-32")
+extract_train_features.py:49:            for j in range(CAPTIONS_PER_IMAGE):
+extract_dev_features.py:4:from datasets import load_dataset, DownloadConfig
+extract_dev_features.py:7:CAPTIONS_PER_IMAGE = 5
+extract_dev_features.py:11:dataset = load_dataset(
+extract_dev_features.py:21:model, _, preprocess = open_clip.create_model_and_transforms(
+extract_dev_features.py:22:    "ViT-B-32",
+extract_dev_features.py:26:tokenizer = open_clip.get_tokenizer("ViT-B-32")
+extract_dev_features.py:49:            for j in range(CAPTIONS_PER_IMAGE):
+
+========== CLIP MODEL CONFIG ==========

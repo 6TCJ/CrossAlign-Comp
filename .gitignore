@@ -1,0 +1,42 @@
+# Dataset
+e2_data/
+**/e2_data/
+*.parquet
+*.arrow
+
+# Model checkpoints
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+
+# Cache
+.cache/
+huggingface/
+wandb/
+
+# Logs
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# System
+.DS_Store
+
+# Local archives and backups
+*.zip
+*.bak
+*.before_stream_close.bak
